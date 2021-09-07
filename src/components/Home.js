@@ -5,6 +5,14 @@ import Output from "./Output";
 import Update from "./Update";
 
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      mode: null,
+    };
+  }
+
   render() {
     console.log(this.props, "home page");
     return (
@@ -16,7 +24,7 @@ class Home extends React.Component {
           <div className="col-md-3"></div>
           <div className="col-md-2">
             <button
-              onClick={() => this.props.changeMode("NOTES")}
+              onClick={() => this.setState({ mode: "NOTES" })}
               className="btn btn-info"
             >
               Notes
@@ -24,7 +32,7 @@ class Home extends React.Component {
           </div>
           <div className="col-md-2">
             <button
-              onClick={() => this.props.changeMode("TODOS")}
+              onClick={() => this.setState({ mode: "TODOS" })}
               className="btn btn-info"
             >
               Todos
@@ -32,7 +40,7 @@ class Home extends React.Component {
           </div>
           <div className="col-md-2">
             <button
-              onClick={() => this.props.changeMode("REMINDERS")}
+              onClick={() => this.setState({ mode: "REMINDERS" })}
               className="btn btn-info"
             >
               Reminders
@@ -43,7 +51,7 @@ class Home extends React.Component {
         <div className="row mt-3">
           <div className="col-md-8 offset-md-2">
             {console.log(this.props)}
-            <Output currentMode={this.props.mode} />
+            <Output currentMode={this.state.mode} />
           </div>
         </div>
         <div id="update" className="row mt-5">
@@ -57,9 +65,7 @@ class Home extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { mode: state.mode, selectedElement: state.selectedElement };
+  return { selectedElement: state.selectedElement };
 };
 
-export default connect(mapStateToProps, {
-  changeMode,
-})(Home);
+export default connect(mapStateToProps)(Home);
