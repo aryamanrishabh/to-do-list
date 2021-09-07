@@ -1,6 +1,10 @@
 import { CREATE_REMINDER, EDIT_REMINDER } from "../actions/types";
 
-export const remindersReducer = (reminders = [], action) => {
+const INITIAL_STATE = {
+  reminders: []
+};
+
+export const remindersReducer = (reminders = INITIAL_STATE.reminders, action) => {
   switch (action.type) {
     case CREATE_REMINDER:
       return [...reminders, action.payload];

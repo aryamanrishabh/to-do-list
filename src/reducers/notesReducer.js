@@ -1,6 +1,10 @@
 import { CREATE_NOTE, EDIT_NOTE } from "../actions/types";
 
-export const notesReducer = (notes = [], action) => {
+const INITIAL_STATE = {
+  notes: [],
+};
+
+export const notesReducer = (notes = INITIAL_STATE.notes, action) => {
   switch (action.type) {
     case CREATE_NOTE:
       return [...notes, action.payload];

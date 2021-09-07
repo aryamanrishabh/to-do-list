@@ -1,6 +1,10 @@
 import { CREATE_TODO, EDIT_TODO } from "../actions/types";
 
-export const todosReducer = (todos = [], action) => {
+const INITIAL_STATE = {
+  todos: []
+};
+
+export const todosReducer = (todos = INITIAL_STATE.todos, action) => {
   switch (action.type) {
     case CREATE_TODO:
       return [...todos, action.payload];
