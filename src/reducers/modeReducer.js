@@ -1,8 +1,11 @@
 import { CHANGE_MODE } from "../actions/types";
 
 export const modeReducer = (mode = "", action) => {
-  if (action.type === CHANGE_MODE) {
-    return action.payload;
+  switch (action.type) {
+    case CHANGE_MODE:
+      return action.payload;
+
+    default:
+      return mode;
   }
-  return mode;
 };

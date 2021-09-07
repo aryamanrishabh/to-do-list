@@ -5,13 +5,17 @@ import { editNote } from "../actions/noteActions";
 import { editTodo } from "../actions/todoActions";
 
 class Update extends React.Component {
-  state = {
-    text: "",
-    todo: "",
-    reminder: "",
-    due: "",
-    status: "",
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      text: "",
+      todo: "",
+      reminder: "",
+      due: "",
+      status: "",
+    };
+  }
 
   render() {
     console.log(this.props);

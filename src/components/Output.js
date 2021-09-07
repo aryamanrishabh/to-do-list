@@ -6,11 +6,15 @@ import { createNote } from "../actions/noteActions";
 import { selectElement } from "../actions/selectElement";
 
 class Output extends React.Component {
-  state = {
-    text: "",
-    status: "",
-    due: "",
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      text: "",
+      status: "",
+      due: "",
+    };
+  }
 
   render() {
     console.log(this.props, "output page");

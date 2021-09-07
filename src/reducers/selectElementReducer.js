@@ -1,8 +1,11 @@
 import { SELECT_ELEMENT } from "../actions/types";
 
 export const selectElementReducer = (element = null, action) => {
-  if (action.type === SELECT_ELEMENT) {
-    return action.payload;
+  switch (action.type) {
+    case SELECT_ELEMENT:
+      return action.payload;
+
+    default:
+      return element;
   }
-  return element;
 };
