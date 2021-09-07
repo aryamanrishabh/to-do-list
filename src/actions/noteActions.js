@@ -1,4 +1,4 @@
-import { CREATE_NOTE, EDIT_NOTE } from "./types";
+import { CREATE_NOTE, EDIT_NOTE, RESET_NOTE } from "./types";
 
 let nextNoteId = 0;
 export const createNote = (text) => {
@@ -24,3 +24,4 @@ export const editNote = (id, text) => {
     },
   };
 };
+
