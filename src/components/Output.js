@@ -164,10 +164,11 @@ class Output extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state, "state log");
   return {
-    notes: state.notes,
-    todos: state.todos,
-    reminders: state.reminders,
+    notes: state.notes.notes,
+    todos: state.todos.todos,
+    reminders: state.reminders.reminders,
     selectedElement: state.selectedElement,
   };
 };

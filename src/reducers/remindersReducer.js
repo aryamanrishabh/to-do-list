@@ -4,29 +4,20 @@ const INITIAL_STATE = {
   reminders: [],
 };
 
-export const remindersReducer = (
-  reminders = INITIAL_STATE.reminders,
-  action
-) => {
+export const remindersReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case CREATE_REMINDER:
-      return [...reminders, action.payload];
+      return { ...state, reminders: [...state.reminders, action.payload] };
 
     case EDIT_REMINDER:
-      const remindersCopy = reminders;
+      const remindersCopy = [...state.reminders];
       const index = remindersCopy.findIndex(
         (todo) => todo.id === action.payload.id
       );
       remindersCopy[index] = action.payload;
-      return remindersCopy;
+      return { ...state, reminders: remindersCopy };
 
     default:
-      return reminders;
+      return state;
   }
 };
-
-// return reminders.map((reminder) =>
-//         reminder.id === action.payload.id
-//           ? Object.assign(reminder, action.payload)
-//           : reminder
-//       );

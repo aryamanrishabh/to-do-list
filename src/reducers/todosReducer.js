@@ -4,26 +4,20 @@ const INITIAL_STATE = {
   todos: [],
 };
 
-export const todosReducer = (todos = INITIAL_STATE.todos, action) => {
+export const todosReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case CREATE_TODO:
-      return [...todos, action.payload];
+      return {...state, todos: [...state.todos, action.payload]};
 
     case EDIT_TODO:
-      const todosCopy = todos;
+      const todosCopy = [...state.todos];
       const index = todosCopy.findIndex(
         (todo) => todo.id === action.payload.id
       );
       todosCopy[index] = action.payload;
-      return todosCopy;
+      return {...state, todos: todosCopy};
 
     default:
-      return todos;
+      return state;
   }
 };
-
-// return todos.map((todo) =>
-//         todo.id === action.payload.id
-//           ? Object.assign(todo, action.payload)
-//           : todo
-//       );
