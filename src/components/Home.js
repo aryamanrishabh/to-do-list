@@ -15,7 +15,7 @@ class Home extends React.Component {
   render() {
     console.log(this.props, "home page");
     return (
-      <div className="container">
+      <div data-testid="containerDiv" className="container">
         <div className="row text-center my-5">
           <h1 className="display-1 text-white">What are you doing today?</h1>
         </div>
